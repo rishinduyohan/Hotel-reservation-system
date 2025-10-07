@@ -59,6 +59,7 @@ public class CustomerInfoController implements Initializable {
     void btnAddOnAction(ActionEvent event) {
         CustomerInfoDTO newCustomer = new CustomerInfoDTO(txtCusId.getText(),txtName.getText(),txtTelno.getText(),Integer.parseInt(txtAge.getText()),txtCity.getText());
         customerInfoDTOS.add(newCustomer);
+        tblCustomerInfo.refresh();
         clear();
     }
 
@@ -71,12 +72,20 @@ public class CustomerInfoController implements Initializable {
     void btnDeleteOnAction(ActionEvent event) {
         CustomerInfoDTO selectedCustomer = tblCustomerInfo.getSelectionModel().getSelectedItem();
         customerInfoDTOS.remove(selectedCustomer);
+        tblCustomerInfo.refresh();
         clear();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        CustomerInfoDTO selectedCustomer = tblCustomerInfo.getSelectionModel().getSelectedItem();
+        selectedCustomer.setCusId(txtCusId.getText());
+        selectedCustomer.setName(txtName.getText());
+        selectedCustomer.setPno(txtTelno.getText());
+        selectedCustomer.setAge(Integer.parseInt(txtAge.getText()));
+        selectedCustomer.setCity(txtCity.getText());
+        tblCustomerInfo.refresh();
+        clear();
     }
 
     public void clear(){
