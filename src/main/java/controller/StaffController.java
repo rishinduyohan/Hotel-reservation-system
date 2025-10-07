@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.dto.CustomerInfoDTO;
 import model.dto.StaffInfoDTO;
 
 import java.net.URL;
@@ -66,24 +67,44 @@ public class StaffController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
+        StaffInfoDTO newMember = new StaffInfoDTO(txtStaffId.getText(),txtName.getText(),txtTelno.getText(),txtEmail.getText(),comboRole.getValue(),Double.parseDouble(txtSalary.getText()));
+        staffInfoDTOS.add(newMember);
+        tblStaffInfo.refresh();
+        clear();
     }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+        clear();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        StaffInfoDTO selectedCustomer = tblStaffInfo.getSelectionModel().getSelectedItem();
+        staffInfoDTOS.remove(selectedCustomer);
+        tblStaffInfo.refresh();
+        clear();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        StaffInfoDTO selectedMember = tblStaffInfo.getSelectionModel().getSelectedItem();
+        selectedMember.setStaffId(txtStaffId.getText());
+        selectedMember.setName(txtName.getText());
+        selectedMember.setTelno(txtTelno.getText());
+        selectedMember.setEmail(txtEmail.getText());
+        selectedMember.setReception(comboRole.getValue());
+        selectedMember.setSalary(Double.parseDouble(txtSalary.getText()));
+        tblStaffInfo.refresh();
+        clear();
     }
-
+    public void clear(){
+        txtStaffId.setText("");
+        txtName.setText("");
+        txtTelno.setText("");
+        txtEmail.setText("");
+        txtSalary.setText("");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         staffId.setCellValueFactory(new PropertyValueFactory<>("staffId"));
