@@ -38,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnServiceInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Staff Info">
+            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Staff Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

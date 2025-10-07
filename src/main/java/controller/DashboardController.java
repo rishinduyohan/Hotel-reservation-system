@@ -28,9 +28,15 @@ public class DashboardController {
         stage.show();
     }
 
-    public void btnServiceInfoOnAction(ActionEvent actionEvent) {
+    public void btnUserDetailsOnAction(ActionEvent actionEvent) {
     }
 
-    public void btnUserDetailsOnAction(ActionEvent actionEvent) {
+    public void btnStaffInfoOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Staff_info.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
     }
 }
