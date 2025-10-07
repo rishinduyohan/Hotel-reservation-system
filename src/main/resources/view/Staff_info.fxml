@@ -12,7 +12,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<AnchorPane prefHeight="459.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerInfoController">
+<AnchorPane prefHeight="459.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StaffController">
    <children>
       <Pane prefHeight="459.0" prefWidth="228.0" style="-fx-background-color: #264653;">
          <children>
@@ -50,7 +50,6 @@
       <ComboBox fx:id="comboRole" layoutX="250.0" layoutY="132.0" prefHeight="31.0" prefWidth="194.0" promptText="Reception" style="-fx-background-radius: 15;" visibleRowCount="3" >
           <items>
               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="-- Staff Roles --"/>
                   <String fx:value="Manager"/>
                   <String fx:value="Receptionist"/>
                   <String fx:value="Housekeeping"/>
