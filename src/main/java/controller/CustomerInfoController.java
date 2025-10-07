@@ -69,7 +69,9 @@ public class CustomerInfoController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        CustomerInfoDTO selectedCustomer = tblCustomerInfo.getSelectionModel().getSelectedItem();
+        customerInfoDTOS.remove(selectedCustomer);
+        clear();
     }
 
     @FXML
