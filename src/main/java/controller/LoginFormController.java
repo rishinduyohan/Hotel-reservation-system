@@ -38,7 +38,7 @@ public class LoginFormController extends Component {
             JOptionPane.showMessageDialog(this,"Login Succuss!","Conform",JOptionPane.INFORMATION_MESSAGE);
             cleanText();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerDashboard.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"))));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

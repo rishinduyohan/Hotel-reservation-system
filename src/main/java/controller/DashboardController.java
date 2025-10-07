@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CustomerDashController {
+public class DashboardController {
     Stage stage = new Stage();
 
     public void btnRoomInfoOnAction(ActionEvent actionEvent) {
@@ -20,6 +20,12 @@ public class CustomerDashController {
     }
 
     public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Customer_info.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
     }
 
     public void btnServiceInfoOnAction(ActionEvent actionEvent) {
