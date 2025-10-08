@@ -49,7 +49,7 @@
                </font>
             </Button>
             <Text fill="WHITE" layoutX="97.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****" />
-            <Button layoutX="168.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 30; -fx-background-color: #ffba08;" text="Sign Out" textFill="#595454">
+            <Button layoutX="168.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 30; -fx-background-color: #ffba08;" text="Log out" textFill="#595454">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
