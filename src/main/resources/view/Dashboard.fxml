@@ -9,43 +9,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="546.0" prefWidth="854.0" style="-fx-background-color: #edf2f4;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+<AnchorPane prefHeight="546.0" prefWidth="854.0" style="-fx-background-color: #edf6f9;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <Pane prefHeight="545.0" prefWidth="266.0" style="-fx-background-color: #264653;">
          <children>
-            <Button layoutX="39.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Room Info">
+            <Button layoutX="39.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Room Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Customer Info">
+            <Button layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Customer Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Text fill="#fff8f8" layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" wrappingWidth="188.00000000000006">
+            <Text fill="#edf6f9" layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" wrappingWidth="188.00000000000006">
                <font>
                   <Font name="Arial Black" size="25.0" />
                </font>
             </Text>
-            <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="75.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="85.0" fitWidth="71.0" layoutX="25.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/5087579.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="101.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
+            <Text fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Staff Info">
+            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Staff Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="36.0" prefWidth="188.0" text="User Experience">
+            <Button layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="User Experience">
                <font>
                   <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="97.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****" />
+            <Button layoutX="168.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 30; -fx-background-color: #ffba08;" text="Log out" textFill="#595454">
+               <font>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
          </children>
@@ -54,10 +60,10 @@
          <children>
             <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availibility" wrappingWidth="124.35894775390625">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="48%">
+            <Text fill="#edf6f9" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81%">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
@@ -68,10 +74,10 @@
          <children>
             <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ratings" wrappingWidth="124.35894775390625">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="55.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
+            <Text fill="#edf6f9" layoutX="55.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
@@ -82,10 +88,10 @@
          <children>
             <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars" wrappingWidth="124.35894775390625">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="70.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+            <Text fill="#edf6f9" layoutX="70.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
                <font>
                   <Font name="System Bold Italic" size="42.0" />
                </font>
@@ -113,5 +119,6 @@
          </image>
       </ImageView>
       <Text fill="#445479" layoutX="287.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to your command center! Effortlessly manage rooms, guests, and staff with sleek, intuitive controls. Add, edit, or remove info in a flash thanks to full CRUD functionality. Whether you're checking in a guest or updating staff details, everything you need is just a click away." wrappingWidth="546.1434326171875" />
+      <Text layoutX="621.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annualy customer reviews" />
    </children>
 </AnchorPane>

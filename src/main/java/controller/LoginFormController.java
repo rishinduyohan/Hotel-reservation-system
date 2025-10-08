@@ -1,12 +1,16 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.dto.LoginAccDTO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,33 +22,51 @@ public class LoginFormController extends Component {
     public PasswordField txtPassword;
     Stage stage = new Stage();
 
-    public void btnCancelOnAction(ActionEvent actionEvent) {
-        System.exit(0);
+    static ObservableList<LoginAccDTO> loginAccDTOS = FXCollections.observableArrayList(
+            new LoginAccDTO("Admin", 1234),
+            new LoginAccDTO("User", 1234),
+            new LoginAccDTO("Rishindu", 2005)
+    );
+
+    public void btnSignInOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SignUp_form.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
     }
 
-    public boolean checkPassword(String username,String password){
-        if (username.equals("Admin") && password.equals("1234")) {
-            return true;
+    public boolean checkPassword(String username, String password) {
+        for (LoginAccDTO acc : loginAccDTOS) {
+            if (acc.getUsername().equals(txtUsername.getText()) && acc.getPassword() == Integer.parseInt(txtPassword.getText())) {
+                return true;
+            }
         }
         return false;
     }
-    public void cleanText(){
+
+    public void cleanText() {
         txtUsername.setText("");
         txtPassword.setText("");
     }
+
     public void btnLogInOnAction(ActionEvent actionEvent) {
-        boolean isChecked = checkPassword(txtUsername.getText(),txtPassword.getText());
-        if(isChecked) {
-            JOptionPane.showMessageDialog(this,"Login Succuss!","Conform",JOptionPane.INFORMATION_MESSAGE);
+        boolean isChecked = checkPassword(txtUsername.getText(), txtPassword.getText());
+        if (isChecked) {
             cleanText();
             try {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"))));
+                Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                currentStage.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             stage.setTitle("Dashboard");
             stage.show();
-        }else{
+        } else {
             //Alert box
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -53,5 +75,14 @@ public class LoginFormController extends Component {
             alert.showAndWait();
             cleanText();
         }
+    }
+
+    public void checkPasswordOnAction(ActionEvent actionEvent) {
+        btnLogInOnAction(actionEvent);
+    }
+
+    public static boolean isAdded(LoginAccDTO user) {
+        loginAccDTOS.add(user);
+        return true;
     }
 }
