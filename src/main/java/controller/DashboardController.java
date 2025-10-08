@@ -39,4 +39,13 @@ public class DashboardController {
         }
         stage.show();
     }
+
+    public void btnSignOutOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Login_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+    }
 }

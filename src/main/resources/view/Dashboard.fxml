@@ -13,12 +13,12 @@
    <children>
       <Pane prefHeight="545.0" prefWidth="266.0" style="-fx-background-color: #264653;">
          <children>
-            <Button layoutX="39.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Room Info">
+            <Button layoutX="39.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30;" text="Room Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Customer Info">
+            <Button layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30;" text="Customer Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -28,24 +28,30 @@
                   <Font name="Arial Black" size="25.0" />
                </font>
             </Text>
-            <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="75.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="85.0" fitWidth="71.0" layoutX="25.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/5087579.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="101.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
+            <Text fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" text="Staff Info">
+            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30;" text="Staff Info">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="36.0" prefWidth="188.0" text="User Experience">
+            <Button layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30;" text="User Experience">
                <font>
                   <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="97.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****" />
+            <Button layoutX="168.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 30;" text="Sign Out">
+               <font>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
          </children>
