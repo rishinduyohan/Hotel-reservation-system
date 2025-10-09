@@ -33,7 +33,7 @@
                   <Image url="@../images/5087579.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
+            <Text fx:id="txtuserName" fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
                <font>
                   <Font size="14.0" />
                </font>
@@ -58,12 +58,12 @@
       </Pane>
       <Pane layoutX="290.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #778da9; -fx-background-radius: 15;">
          <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availibility" wrappingWidth="124.35894775390625">
+            <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff members" wrappingWidth="124.35894775390625">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#edf6f9" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81%">
+            <Text fx:id="txtStaffmembers" fill="#edf6f9" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81%">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
@@ -72,12 +72,12 @@
       </Pane>
       <Pane layoutX="474.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #bb9457; -fx-background-radius: 15;">
          <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ratings" wrappingWidth="124.35894775390625">
+            <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers" wrappingWidth="124.35894775390625">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#edf6f9" layoutX="55.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
+            <Text fx:id="txtCustomers" fill="#edf6f9" layoutX="55.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
@@ -86,12 +86,12 @@
       </Pane>
       <Pane layoutX="656.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #aacc00; -fx-background-radius: 15;">
          <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars" wrappingWidth="124.35894775390625">
+            <Text fill="WHITE" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Rooms" wrappingWidth="144.35894775390625">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#edf6f9" layoutX="70.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+            <Text fx:id="txtRooms" fill="#edf6f9" layoutX="70.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
                <font>
                   <Font name="System Bold Italic" size="42.0" />
                </font>

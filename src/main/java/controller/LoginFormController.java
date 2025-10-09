@@ -56,7 +56,7 @@ public class LoginFormController extends Component {
     public void btnLogInOnAction(ActionEvent actionEvent) {
         boolean isChecked = checkPassword(txtUsername.getText(), txtPassword.getText());
         if (isChecked) {
-            cleanText();
+            DashboardController.temp = txtUsername.getText();
             try {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"))));
                 Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
