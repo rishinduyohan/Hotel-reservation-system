@@ -2,13 +2,22 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.dto.LoginAccDTO;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DashboardController {
+
+public class DashboardController extends Component implements Initializable {
+    public Text txtuserName;
+    protected static String temp;
     Stage stage = new Stage();
 
     public void btnRoomInfoOnAction(ActionEvent actionEvent) {
@@ -19,7 +28,6 @@ public class DashboardController {
         }
         stage.show();
     }
-
     public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Customer_info.fxml"))));
@@ -51,5 +59,10 @@ public class DashboardController {
             throw new RuntimeException(e);
         }
         stage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtuserName.setText(temp+" dminuser");
     }
 }

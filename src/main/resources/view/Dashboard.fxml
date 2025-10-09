@@ -33,7 +33,7 @@
                   <Image url="@../images/5087579.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
+            <Text fx:id="txtuserName" fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
                <font>
                   <Font size="14.0" />
                </font>
