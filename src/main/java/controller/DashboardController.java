@@ -72,5 +72,7 @@ public class DashboardController extends Component implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtuserName.setText(temp+" user");
         txtStaffmembers.setText(StaffController.countStaff()+"");
+        txtCustomers.setText(CustomerInfoController.countStaff()+"");
+
     }
 }

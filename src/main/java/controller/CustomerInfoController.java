@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
 
-    ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList(
+    static ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList(
             new CustomerInfoDTO("C001","Kamal","0716584218",25,"Kaluthara"),
             new CustomerInfoDTO("C002","Amal","0715151218",60,"Mathara"),
             new CustomerInfoDTO("C003","Hamal","0726894658",35,"Kegalle"),
@@ -114,5 +114,12 @@ public class CustomerInfoController implements Initializable {
                 txtCity.setText(newValue.getCity());
             }
         });
+    }
+    public static int countStaff(){
+        int count = 0;
+        for (int i = 0; i < customerInfoDTOS.size(); i++) {
+            count++;
+        }
+        return count;
     }
 }
