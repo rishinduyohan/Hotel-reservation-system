@@ -26,6 +26,7 @@ public class DashboardController extends Component implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        stage.setTitle("Room Service");
         stage.show();
     }
     public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
@@ -34,6 +35,7 @@ public class DashboardController extends Component implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        stage.setTitle("Customer Service");
         stage.show();
     }
 
@@ -46,6 +48,7 @@ public class DashboardController extends Component implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        stage.setTitle("Staff Service");
         stage.show();
     }
 
@@ -58,11 +61,12 @@ public class DashboardController extends Component implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        stage.setTitle("LogIn");
         stage.show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtuserName.setText(temp+" dminuser");
+        txtuserName.setText(temp+" user");
     }
 }
