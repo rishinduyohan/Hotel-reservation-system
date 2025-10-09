@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class RoomInfoController implements Initializable {
 
-    ObservableList<RoomInfoDTO> roomInfoDTOS = FXCollections.observableArrayList(
+    static ObservableList<RoomInfoDTO> roomInfoDTOS = FXCollections.observableArrayList(
             new RoomInfoDTO("R001", "Single", "Single room with two beds.", "Rs.15000.00"),
             new RoomInfoDTO("R002", "Double", "Double room with three beds.", "Rs.75000.00"),
             new RoomInfoDTO("R003", "VIP", "VIP room with 8 beds.Full Access.", "Rs.250 000.00"),
@@ -116,6 +116,13 @@ public class RoomInfoController implements Initializable {
                 txtPrice.setText(newValue.getPrice());
             }
         });
+    }
+    public static int countRooms(){
+        int count = 0;
+        for (int i = 0; i < roomInfoDTOS.size(); i++) {
+            count++;
+        }
+        return count;
     }
     
 }

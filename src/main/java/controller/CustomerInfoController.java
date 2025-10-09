@@ -115,7 +115,7 @@ public class CustomerInfoController implements Initializable {
             }
         });
     }
-    public static int countStaff(){
+    public static int countCustomers(){
         int count = 0;
         for (int i = 0; i < customerInfoDTOS.size(); i++) {
             count++;
