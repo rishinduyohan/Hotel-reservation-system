@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
 
-    ObservableList<StaffInfoDTO> staffInfoDTOS = FXCollections.observableArrayList(
+    static ObservableList<StaffInfoDTO> staffInfoDTOS = FXCollections.observableArrayList(
             new StaffInfoDTO("S0001","Arunika","0716112728","arunika@gmail.com","manager",87000.00),
             new StaffInfoDTO("S0002", "Nuwan", "0771234567", "nuwan@hotel.com", "receptionist", 55000.00),
             new StaffInfoDTO("S0003", "Dilani", "0759876543", "dilani@hotel.com", "housekeeping", 48000.00),
@@ -126,5 +126,12 @@ public class StaffController implements Initializable {
                 txtSalary.setText(String.valueOf(newValue.getSalary()));
             }
         });
+    }
+    public static int countStaff(){
+        int count = 0;
+        for (int i = 0; i < staffInfoDTOS.size(); i++) {
+            count++;
+        }
+        return count;
     }
 }

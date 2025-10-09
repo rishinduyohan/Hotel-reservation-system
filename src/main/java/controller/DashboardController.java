@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
 public class DashboardController extends Component implements Initializable {
     public Text txtuserName;
     protected static String temp;
+    public Text txtStaffmembers;
+    public Text txtCustomers;
+    public Text txtRooms;
     Stage stage = new Stage();
 
     public void btnRoomInfoOnAction(ActionEvent actionEvent) {
@@ -68,5 +71,6 @@ public class DashboardController extends Component implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtuserName.setText(temp+" user");
+        txtStaffmembers.setText(StaffController.countStaff()+"");
     }
 }
