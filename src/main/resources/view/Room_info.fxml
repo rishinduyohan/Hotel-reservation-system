@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="459.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomInfoController">
+<AnchorPane prefHeight="459.0" prefWidth="728.0" style="-fx-background-color: #edf6f9;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomInfoController">
    <children>
       <Pane prefHeight="459.0" prefWidth="228.0" style="-fx-background-color: #264653;">
          <children>
@@ -18,28 +18,28 @@
                   <Font name="Brush Script MT Italic" size="32.0" />
                </font>
             </Text>
-            <Button layoutX="55.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="119.0" text="Clear">
+            <Button layoutX="55.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: blue;" text="Clear" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="54.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="119.0" text="Add">
+            <Button layoutX="54.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: green;" text="Add" textFill="#faf9f9">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="54.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="119.0" text="Update">
+            <Button layoutX="54.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="54.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="119.0" text="Delete">
+            <Button layoutX="54.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <TableView fx:id="tblRoomInfo" layoutX="253.0" layoutY="155.0" prefHeight="267.0" prefWidth="449.0">
+      <TableView fx:id="tblRoomInfo" layoutX="253.0" layoutY="155.0" prefHeight="267.0" prefWidth="449.0" style="-fx-background-radius: 30;">
         <columns>
           <TableColumn fx:id="colRoomId" prefWidth="67.20001220703125" text="Room ID" />
           <TableColumn fx:id="colType" prefWidth="82.4000244140625" text="Type" />
