@@ -41,7 +41,7 @@ public class LoginFormController extends Component {
 
     public boolean checkPassword(String username, String password) {
         for (LoginAccDTO acc : loginAccDTOS) {
-            if (acc.getUsername().equals(txtUsername.getText()) && acc.getPassword() == Integer.parseInt(txtPassword.getText())) {
+            if (acc.getUsername().equals(username) && acc.getPassword() == Integer.parseInt(password)) {
                 return true;
             }
         }

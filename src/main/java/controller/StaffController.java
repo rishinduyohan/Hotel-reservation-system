@@ -91,7 +91,7 @@ public class StaffController implements Initializable {
         StaffInfoDTO selectedMember = tblStaffInfo.getSelectionModel().getSelectedItem();
         selectedMember.setStaffId(txtStaffId.getText());
         selectedMember.setName(txtName.getText());
-        selectedMember.setTelno(txtTelno.getText());
+        selectedMember.setTelNo(txtTelno.getText());
         selectedMember.setEmail(txtEmail.getText());
         selectedMember.setReception(comboRole.getValue());
         selectedMember.setSalary(Double.parseDouble(txtSalary.getText()));
@@ -109,7 +109,7 @@ public class StaffController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         staffId.setCellValueFactory(new PropertyValueFactory<>("staffId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colTelno.setCellValueFactory(new PropertyValueFactory<>("telno"));
+        colTelno.setCellValueFactory(new PropertyValueFactory<>("telNo"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colReception.setCellValueFactory(new PropertyValueFactory<>("reception"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
@@ -120,7 +120,7 @@ public class StaffController implements Initializable {
             if(newValue!=null){
                 txtStaffId.setText(newValue.getStaffId());
                 txtName.setText(newValue.getName());
-                txtTelno.setText(newValue.getTelno());
+                txtTelno.setText(newValue.getTelNo());
                 txtEmail.setText(newValue.getEmail());
                 comboRole.setValue(newValue.getReception());
                 txtSalary.setText(String.valueOf(newValue.getSalary()));
