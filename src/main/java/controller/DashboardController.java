@@ -7,8 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.dto.LoginAccDTO;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;

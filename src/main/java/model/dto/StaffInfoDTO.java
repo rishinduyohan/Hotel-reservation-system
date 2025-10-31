@@ -9,7 +9,7 @@ import lombok.*;
 public class StaffInfoDTO {
     private String staffId;
     private String name;
-    private String telno;
+    private String telNo;
     private String email;
     private String reception;
     private double salary;
