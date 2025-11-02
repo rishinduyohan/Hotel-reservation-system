@@ -1,10 +1,12 @@
 package controller;
 
+import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -12,16 +14,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.dto.CustomerInfoDTO;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
 
-    static ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList(
-            new CustomerInfoDTO("C001","Kamal","0716584218",25,"Kaluthara"),
-            new CustomerInfoDTO("C002","Amal","0715151218",60,"Mathara"),
-            new CustomerInfoDTO("C003","Hamal","0726894658",35,"Kegalle"),
-            new CustomerInfoDTO("C004","Shamal","0714568945",70,"Kandy")
-    );
+    static ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList();
     @FXML
     private TableColumn<?, ?> colAge;
 
@@ -55,14 +56,39 @@ public class CustomerInfoController implements Initializable {
     @FXML
     private TextField txtTelno;
 
+    public CustomerInfoDTO getCurrentCustomer(){
+        return new CustomerInfoDTO(txtCusId.getText(),txtName.getText(),txtTelno.getText(),Integer.parseInt(txtAge.getText()),txtCity.getText());
+    }
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        CustomerInfoDTO newCustomer = new CustomerInfoDTO(txtCusId.getText(),txtName.getText(),txtTelno.getText(),Integer.parseInt(txtAge.getText()),txtCity.getText());
-        customerInfoDTOS.add(newCustomer);
-        tblCustomerInfo.refresh();
+        if(isAdded(getCurrentCustomer())){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Success!");
+            alert.setHeaderText("Customer Added!");
+            alert.setContentText("Customer added successfully to the system");
+            alert.showAndWait();
+        }
+        loadTable();
         clear();
     }
-
+    public boolean isAdded(CustomerInfoDTO customer){
+        try {
+            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO CUSTOMER VALUES(?,?,?,?,?)");
+            statement.setObject(1,customer.getCusId());
+            statement.setObject(2,customer.getName());
+            statement.setObject(3,customer.getPno());
+            statement.setObject(4,customer.getAge());
+            statement.setObject(5,customer.getCity());
+            return statement.executeUpdate()>0;
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Customer NOT Added!");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+        return false;
+    }
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clear();
@@ -71,21 +97,60 @@ public class CustomerInfoController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         CustomerInfoDTO selectedCustomer = tblCustomerInfo.getSelectionModel().getSelectedItem();
-        customerInfoDTOS.remove(selectedCustomer);
-        tblCustomerInfo.refresh();
+        if (isDeleted(selectedCustomer.getCusId())){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Success!");
+            alert.setHeaderText("Customer Deleted!");
+            alert.setContentText("Customer deleted successfully");
+            alert.showAndWait();
+        }
+        loadTable();
         clear();
     }
-
+    public boolean isDeleted(String id){
+        try {
+            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("DELETE FROM CUSTOMER WHERE cus_Id='"+id+"'");
+            return statement.executeUpdate()>0;
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Customer NOT Deleted!");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+        return false;
+    }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         CustomerInfoDTO selectedCustomer = tblCustomerInfo.getSelectionModel().getSelectedItem();
-        selectedCustomer.setCusId(txtCusId.getText());
-        selectedCustomer.setName(txtName.getText());
-        selectedCustomer.setPno(txtTelno.getText());
-        selectedCustomer.setAge(Integer.parseInt(txtAge.getText()));
-        selectedCustomer.setCity(txtCity.getText());
-        tblCustomerInfo.refresh();
+        if (isUpdated(selectedCustomer)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Success!");
+            alert.setHeaderText("Customer Updated!");
+            alert.setContentText("Customer updated successfully");
+            alert.showAndWait();
+        }
+        loadTable();
         clear();
+    }
+    public boolean isUpdated(CustomerInfoDTO select){
+        CustomerInfoDTO customer = getCurrentCustomer();
+        try {
+            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("UPDATE CUSTOMER SET name=?,pno=?,age=?,city=? WHERE cus_Id=?");
+            statement.setObject(5,select.getCusId());
+            statement.setObject(1,customer.getName());
+            statement.setObject(2,customer.getPno());
+            statement.setObject(3,customer.getAge());
+            statement.setObject(4,customer.getCity());
+            return statement.executeUpdate()>0;
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Customer NOT Updated!");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+        return false;
     }
 
     public void clear(){
@@ -102,8 +167,7 @@ public class CustomerInfoController implements Initializable {
         colTelno.setCellValueFactory(new PropertyValueFactory<>("pno"));
         colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
         colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
-
-        tblCustomerInfo.setItems(customerInfoDTOS);
+        loadTable();
 
         tblCustomerInfo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
@@ -114,6 +178,29 @@ public class CustomerInfoController implements Initializable {
                 txtCity.setText(newValue.getCity());
             }
         });
+    }
+    public void loadTable(){
+        customerInfoDTOS.clear();
+        try {
+            Statement statement = DBConnection.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("Select * from customer");
+            while(resultSet.next()){
+                customerInfoDTOS.add(new CustomerInfoDTO(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getString(5)
+                ));
+            }
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Database error!");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+        tblCustomerInfo.setItems(customerInfoDTOS);
     }
     public static int countCustomers(){
         int count = 0;
