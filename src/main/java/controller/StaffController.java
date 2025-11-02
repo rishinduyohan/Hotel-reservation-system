@@ -134,4 +134,16 @@ public class StaffController implements Initializable {
         }
         return count;
     }
+
+    public void btnRoomInfoOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnUserDetailsOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnSignOutOnAction(ActionEvent actionEvent) {
+    }
 }

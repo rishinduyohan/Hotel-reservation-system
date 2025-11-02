@@ -124,5 +124,16 @@ public class RoomInfoController implements Initializable {
         }
         return count;
     }
-    
+
+    public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnStaffInfoOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnUserDetailsOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnSignOutOnAction(ActionEvent actionEvent) {
+    }
 }
