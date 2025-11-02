@@ -24,6 +24,8 @@ public class DashboardController extends Component implements Initializable {
     public void btnRoomInfoOnAction(ActionEvent actionEvent) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Room_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -33,6 +35,8 @@ public class DashboardController extends Component implements Initializable {
     public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Customer_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -46,6 +50,8 @@ public class DashboardController extends Component implements Initializable {
     public void btnStaffInfoOnAction(ActionEvent actionEvent) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Staff_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -54,16 +60,7 @@ public class DashboardController extends Component implements Initializable {
     }
 
     public void btnSignOutOnAction(ActionEvent actionEvent) {
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Login_form.fxml"))));
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage.setTitle("LogIn");
-        stage.show();
     }
 
     @Override
@@ -73,5 +70,8 @@ public class DashboardController extends Component implements Initializable {
         txtCustomers.setText(CustomerInfoController.countCustomers()+"");
         txtRooms.setText(RoomInfoController.countRooms()+"");
 
+    }
+
+    public void btnDashboardOnAction(ActionEvent actionEvent) {
     }
 }

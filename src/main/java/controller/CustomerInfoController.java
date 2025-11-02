@@ -5,14 +5,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.dto.CustomerInfoDTO;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +28,7 @@ import java.util.ResourceBundle;
 public class CustomerInfoController implements Initializable {
 
     static ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList();
+    Stage stage = new Stage();
     @FXML
     private TableColumn<?, ?> colAge;
 
@@ -208,5 +214,73 @@ public class CustomerInfoController implements Initializable {
             count++;
         }
         return count;
+    }
+
+    public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Customer_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Customer");
+        stage.show();
+    }
+
+    public void btnRoomInfoOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Room_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Room Info");
+        stage.show();
+    }
+
+    public void btnStaffInfoOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Staff_info.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Staff Info");
+        stage.show();
+    }
+
+    public void btnUserDetailsOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnSignOutOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Login_form.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("LogIn");
+        stage.show();
+    }
+
+    public void btnDashboardOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"))));
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Dashboard");
+        stage.show();
     }
 }
