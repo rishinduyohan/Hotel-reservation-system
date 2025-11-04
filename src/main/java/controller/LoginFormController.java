@@ -86,6 +86,7 @@ public class LoginFormController extends Component implements Initializable {
 
     public void checkPasswordOnAction(ActionEvent actionEvent) {
         btnLogInOnAction(actionEvent);
+        txtUsername.requestFocus();
     }
 
     public boolean isAdded(LoginAccDTO user) {
@@ -133,5 +134,17 @@ public class LoginFormController extends Component implements Initializable {
     public void btnBackOnAction(ActionEvent actionEvent) {
         signUpPane.setVisible(false);
         signUpPagePane.setVisible(false);
+    }
+
+    public void userNameOnAction(ActionEvent actionEvent) {
+        txtPassword.requestFocus();
+    }
+
+    public void newUsernameOnAction(ActionEvent actionEvent) {
+        txtPassword1.requestFocus();
+    }
+
+    public void checkSecondPasswordOnAction(ActionEvent actionEvent) {
+        btnSignUpAction(actionEvent);
     }
 }

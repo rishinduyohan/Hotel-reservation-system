@@ -169,7 +169,7 @@
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Text>
-                        <TextField fx:id="txtUsername" layoutY="135.0" prefHeight="48.0" prefWidth="355.0" promptText="Enter your username" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
+                        <TextField fx:id="txtUsername" layoutY="135.0" onAction="#userNameOnAction" prefHeight="48.0" prefWidth="355.0" promptText="Enter your username" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -253,7 +253,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="txtUsername1" layoutY="125.0" prefHeight="48.0" prefWidth="355.0" promptText="Choose a unique username" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
+                        <TextField fx:id="txtUsername1" layoutY="125.0" onAction="#newUsernameOnAction" prefHeight="48.0" prefWidth="355.0" promptText="Choose a unique username" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -263,7 +263,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
-                        <PasswordField fx:id="txtPassword1" layoutY="205.0" onAction="#checkPasswordOnAction" prefHeight="48.0" prefWidth="355.0" promptText="Create a strong password" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
+                        <PasswordField fx:id="txtPassword1" layoutY="205.0" onAction="#checkSecondPasswordOnAction" prefHeight="48.0" prefWidth="355.0" promptText="Create a strong password" style="-fx-background-color: #f1f5f9; -fx-background-radius: 10; -fx-text-fill: #0f172a; -fx-prompt-text-fill: #94a3b8; -fx-padding: 14; -fx-border-color: transparent; -fx-border-radius: 10;">
                            <font>
                               <Font size="14.0" />
                            </font>

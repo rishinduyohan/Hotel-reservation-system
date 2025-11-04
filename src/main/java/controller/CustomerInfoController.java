@@ -183,6 +183,7 @@ public class CustomerInfoController implements Initializable {
         });
     }
     private void loadTable(){
+        customerInfoDTOS.clear();
         try {
             Statement statement = DBConnection.getInstance().getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from customer");

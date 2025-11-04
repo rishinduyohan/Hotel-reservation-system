@@ -98,10 +98,6 @@ db.password=your_password
 mvn clean install
 ```
 
-**Using Gradle:**
-```bash
-gradle build
-```
 
 ### Step 4: Run the Application
 
@@ -245,11 +241,19 @@ CREATE TABLE staff (
 
 ## 📸 Screenshots
 
-### Login Screen
-![Login Screen](src/main/resources/images/login.png)
+<table align="center">
+  <tr>
+    <td align="center">
+      <strong>Login Screen</strong><br>
+      <img src="src/main/resources/images/login.png" width="300"/>
+    </td>
+    <td align="center">
+      <strong>Dashboard</strong><br>
+      <img src="src/main/resources/images/dashboard.png" width="300"/>
+    </td>
+  </tr>
+</table>
 
-### Dashboard
-![Dashboard](src/main/resources/images/dashboard.png)
 
 ---
 
