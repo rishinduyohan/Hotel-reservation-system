@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.dto.CustomerInfoDTO;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -26,9 +25,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
-
-    static ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList();
     Stage stage = new Stage();
+    private ObservableList<CustomerInfoDTO> customerInfoDTOS = FXCollections.observableArrayList();
     @FXML
     private TableColumn<?, ?> colAge;
 
@@ -62,7 +60,7 @@ public class CustomerInfoController implements Initializable {
     @FXML
     private TextField txtTelno;
 
-    public CustomerInfoDTO getCurrentCustomer(){
+    private CustomerInfoDTO getCurrentCustomer(){
         return new CustomerInfoDTO(txtCusId.getText(),txtName.getText(),txtTelno.getText(),Integer.parseInt(txtAge.getText()),txtCity.getText());
     }
     @FXML
@@ -77,7 +75,7 @@ public class CustomerInfoController implements Initializable {
         loadTable();
         clear();
     }
-    public boolean isAdded(CustomerInfoDTO customer){
+    private boolean isAdded(CustomerInfoDTO customer){
         try {
             PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO CUSTOMER VALUES(?,?,?,?,?)");
             statement.setObject(1,customer.getCusId());
@@ -113,7 +111,7 @@ public class CustomerInfoController implements Initializable {
         loadTable();
         clear();
     }
-    public boolean isDeleted(String id){
+    private boolean isDeleted(String id){
         try {
             PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("DELETE FROM CUSTOMER WHERE cus_Id='"+id+"'");
             return statement.executeUpdate()>0;
@@ -139,7 +137,7 @@ public class CustomerInfoController implements Initializable {
         loadTable();
         clear();
     }
-    public boolean isUpdated(CustomerInfoDTO select){
+    private boolean isUpdated(CustomerInfoDTO select){
         CustomerInfoDTO customer = getCurrentCustomer();
         try {
             PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement("UPDATE CUSTOMER SET name=?,pno=?,age=?,city=? WHERE cus_Id=?");
@@ -174,7 +172,6 @@ public class CustomerInfoController implements Initializable {
         colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
         colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
         loadTable();
-
         tblCustomerInfo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
                 txtCusId.setText(newValue.getCusId());
@@ -185,8 +182,7 @@ public class CustomerInfoController implements Initializable {
             }
         });
     }
-    public void loadTable(){
-        customerInfoDTOS.clear();
+    private void loadTable(){
         try {
             Statement statement = DBConnection.getInstance().getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from customer");
@@ -207,13 +203,6 @@ public class CustomerInfoController implements Initializable {
             alert.showAndWait();
         }
         tblCustomerInfo.setItems(customerInfoDTOS);
-    }
-    public static int countCustomers(){
-        int count = 0;
-        for (int i = 0; i < customerInfoDTOS.size(); i++) {
-            count++;
-        }
-        return count;
     }
 
     public void btnCustomerInfoOnAction(ActionEvent actionEvent) {
