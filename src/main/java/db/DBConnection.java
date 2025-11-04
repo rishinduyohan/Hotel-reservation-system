@@ -1,9 +1,12 @@
 package db;
 
+import lombok.Getter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Getter
 public class DBConnection {
     private Connection connection;
     public static DBConnection instance;

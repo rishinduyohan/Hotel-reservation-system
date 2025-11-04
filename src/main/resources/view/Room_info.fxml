@@ -4,53 +4,233 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="459.0" prefWidth="728.0" style="-fx-background-color: #edf6f9;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomInfoController">
-   <children>
-      <Pane prefHeight="459.0" prefWidth="228.0" style="-fx-background-color: #264653;">
-         <children>
-            <Text fill="WHITE" layoutX="36.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Info" wrappingWidth="118.52783203125">
-               <font>
-                  <Font name="Brush Script MT Italic" size="32.0" />
-               </font>
-            </Text>
-            <Button layoutX="55.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: blue;" text="Clear" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="54.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: green;" text="Add" textFill="#faf9f9">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="54.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="54.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <TableView fx:id="tblRoomInfo" layoutX="255.0" layoutY="177.0" prefHeight="267.0" prefWidth="449.0" style="-fx-background-radius: 30;">
-        <columns>
-          <TableColumn fx:id="colRoomId" prefWidth="67.20001220703125" text="Room ID" />
-          <TableColumn fx:id="colType" prefWidth="82.4000244140625" text="Type" />
-            <TableColumn fx:id="colPrice" prefWidth="136.79998779296875" text="Price" />
-            <TableColumn fx:id="colDescription" prefWidth="189.5999755859375" text="Description" />
-        </columns>
-      </TableView>
-      <TextField fx:id="txtRoomId" layoutX="255.0" layoutY="59.0" prefHeight="31.0" prefWidth="194.0" promptText="Room ID" style="-fx-background-radius: 15;" />
-      <TextField fx:id="txtType" layoutX="255.0" layoutY="111.0" prefHeight="31.0" prefWidth="194.0" promptText="Type" style="-fx-background-radius: 15;" />
-      <TextField fx:id="txtPrice" layoutX="511.0" layoutY="59.0" prefHeight="31.0" prefWidth="194.0" promptText="Price" style="-fx-background-radius: 15;" />
-      <TextField fx:id="txtDescription" layoutX="511.0" layoutY="111.0" prefHeight="31.0" prefWidth="194.0" promptText="Description" style="-fx-background-radius: 15;" />
-      <Pane layoutX="222.0" prefHeight="48.0" prefWidth="506.0" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="1121.0" style="-fx-background-color: #f0f2f5;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomInfoController">
+    <children>
+        <!-- Left Sidebar Navigation -->
+        <Pane prefHeight="600.0" prefWidth="280.0" style="-fx-background-color: #1f2937;">
+            <children>
+                <!-- Logo Section -->
+                <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#4f46e5" height="50.0" layoutX="20.0" layoutY="25.0" width="50.0" />
+                <Text fill="WHITE" layoutX="80.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Text>
+                <Text fill="#9ca3af" layoutX="80.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Management System" />
+
+                <!-- Navigation Buttons -->
+                <Button layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="Dashboard" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="180.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: #4f46e5; -fx-cursor: hand;" text="🏨  Room Info" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#4f46e550" radius="10.0" />
+                    </effect>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="👥  Customer Info" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="👔  Staff Info" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="⭐  User Experience" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <!-- User Profile Section -->
+                <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#374151" height="90.0" layoutX="20.0" layoutY="480.0" width="240.0" />
+
+                <Circle fill="#4f46e5" layoutX="55.0" layoutY="515.0" radius="25.0" />
+                <Text fill="WHITE" layoutX="42.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RY">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+
+                <Text fx:id="txtuserName" fill="WHITE" layoutX="90.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Text>
+                <Text fill="#9ca3af" layoutX="90.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+
+                <Button layoutX="90.0" layoutY="540.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-radius: 6; -fx-background-color: #ef4444; -fx-cursor: hand;" text="Log out" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="10.0" />
+                    </font>
+                </Button>
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Screenshot%202025-10-10%20230012.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+
+        <!-- Main Content Area (Right Side) -->
+        <Pane layoutX="280.0" prefHeight="600.0" prefWidth="842.0">
+            <children>
+                <!-- Header Section with Buttons -->
+                <Text fill="#1f2937" layoutX="30.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Management">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                </Text>
+                <Text fill="#6b7280" layoutX="30.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage room records and information">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Text>
+
+                <!-- Action Buttons - Top Right -->
+                <Button layoutX="496.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #10b981; -fx-background-radius: 10; -fx-cursor: hand;" text="Add" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#10b98133" radius="8.0" />
+                    </effect>
+                </Button>
+
+                <Button layoutX="596.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #3b82f6; -fx-background-radius: 10; -fx-cursor: hand;" text="Update" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#3b82f633" radius="8.0" />
+                    </effect>
+                </Button>
+
+                <Button layoutX="696.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #ef4444; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#ef444433" radius="8.0" />
+                    </effect>
+                </Button>
+
+                <!-- Input Form Card -->
+                <Pane layoutX="30.0" layoutY="110.0" prefHeight="189.0" prefWidth="756.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Text fill="#1f2937" layoutX="25.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Details">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Text>
+
+                        <!-- Row 1: Room ID, Type, Price -->
+                        <Text fill="#6b7280" layoutX="25.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="txtRoomId" layoutX="25.0" layoutY="70.0" prefHeight="40.0" prefWidth="270.0" promptText="Enter ID" style="-fx-background-color: #f8fafc; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 10;">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </TextField>
+
+                        <Text fill="#6b7280" layoutX="315.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="txtType" layoutX="315.0" layoutY="70.0" prefHeight="41.0" prefWidth="218.0" promptText="Enter type" style="-fx-background-color: #f8fafc; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 10;">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </TextField>
+
+                        <Text fill="#6b7280" layoutX="560.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="txtPrice" layoutX="560.0" layoutY="70.0" prefHeight="41.0" prefWidth="181.0" promptText="Enter price" style="-fx-background-color: #f8fafc; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 10;">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </TextField>
+
+                        <!-- Row 2: Description and Clear Button -->
+                        <Text fill="#6b7280" layoutX="25.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="txtDescription" layoutX="25.0" layoutY="135.0" prefHeight="41.0" prefWidth="590.0" promptText="Enter description" style="-fx-background-color: #f8fafc; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 10;">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </TextField>
+
+                        <Button layoutX="650.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #e5e7eb; -fx-background-radius: 8; -fx-cursor: hand;" text="Clear" textFill="#374151">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+
+                <!-- Table Section -->
+                <Pane layoutX="30.0" layoutY="305.0" prefHeight="50.0" prefWidth="756.0" style="-fx-background-color: white; -fx-background-radius: 15 15 0 0;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Text fill="#1f2937" layoutX="25.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Records">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+
+                <TableView fx:id="tblRoomInfo" layoutX="30.0" layoutY="355.0" prefHeight="215.0" prefWidth="756.0" style="-fx-background-color: white; -fx-background-radius: 0 0 15 15;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <columns>
+                        <TableColumn fx:id="colRoomId" prefWidth="180.0" text="Room ID" />
+                        <TableColumn fx:id="colType" prefWidth="127.20001220703125" text="Type" />
+                        <TableColumn fx:id="colPrice" prefWidth="157.5999755859375" text="Price" />
+                        <TableColumn fx:id="colDescription" prefWidth="289.60003662109375" text="Description" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

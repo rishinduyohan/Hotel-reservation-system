@@ -1,124 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="546.0" prefWidth="854.0" style="-fx-background-color: #edf6f9;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
-   <children>
-      <Pane prefHeight="545.0" prefWidth="266.0" style="-fx-background-color: #264653;">
-         <children>
-            <Button layoutX="39.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Room Info">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Button layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Customer Info">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Text fill="#edf6f9" layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" wrappingWidth="188.00000000000006">
-               <font>
-                  <Font name="Arial Black" size="25.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="85.0" fitWidth="71.0" layoutX="25.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+    <children>
+        <!-- Sidebar Navigation -->
+        <Pane prefHeight="600.0" prefWidth="280.0" style="-fx-background-color: linear-gradient(to bottom, #1a1d29, #2d3142);">
+            <children>
+                <!-- Logo Section -->
+                <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#4f46e5" height="50.0" layoutX="20.0" layoutY="25.0" width="50.0" />
+                <Text fill="WHITE" layoutX="80.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Text>
+                <Text fill="#9ca3af" layoutX="80.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Management System" />
+
+                <!-- Navigation Buttons -->
+                <Button layoutX="20.0" layoutY="166.0" mnemonicParsing="false" onAction="#btnRoomInfoOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="🏨  Room Info" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#4f46e550" radius="10.0" />
+                    </effect>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnCustomerInfoOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="👥  Customer Info" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="👔  Staff Info" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="20.0" layoutY="346.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="⭐  User Experience" textFill="#d1d5db">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <!-- User Profile Section -->
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#374151" height="100.0" layoutX="20.0" layoutY="470.0" width="240.0" />
+
+                <Circle fill="#4f46e5" layoutX="55.0" layoutY="510.0" radius="25.0" />
+                <Text fill="WHITE" layoutX="45.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RY">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+
+                <Text fx:id="txtuserName" fill="WHITE" layoutX="90.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Text>
+                <Text fill="#9ca3af" layoutX="90.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+
+                <Button layoutX="90.0" layoutY="535.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-radius: 8; -fx-background-color: #ef4444; -fx-cursor: hand;" text="Log out" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="11.0" />
+                    </font>
+                </Button>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="25.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/5087579.png" />
+                  <Image url="@../images/Screenshot%202025-10-10%20230012.png" />
                </image>
             </ImageView>
-            <Text fx:id="txtuserName" fill="WHITE" layoutX="96.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishindu Yohan">
+            <Button layoutX="20.0" layoutY="105.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: #4f46e5; -fx-cursor: hand;" text="Dashboard" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Text>
-            <Button layoutX="39.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnStaffInfoOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="Staff Info">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
+               <effect>
+                  <DropShadow color="#4f46e550" radius="10.0" />
+               </effect>
             </Button>
-            <Button layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnUserDetailsOnAction" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 30; -fx-background-color: #edf6f9;" text="User Experience">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Text fill="WHITE" layoutX="97.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+947128*****" />
-            <Button layoutX="168.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnSignOutOnAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 30; -fx-background-color: #ffba08;" text="Log out" textFill="#595454">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane layoutX="290.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #778da9; -fx-background-radius: 15;">
-         <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff members" wrappingWidth="124.35894775390625">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtStaffmembers" fill="#edf6f9" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81%">
-               <font>
-                  <Font name="System Bold" size="29.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Pane layoutX="474.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #bb9457; -fx-background-radius: 15;">
-         <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers" wrappingWidth="124.35894775390625">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtCustomers" fill="#edf6f9" layoutX="55.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
-               <font>
-                  <Font name="System Bold" size="29.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Pane layoutX="656.0" layoutY="23.0" prefHeight="106.0" prefWidth="164.0" style="-fx-background-color: #aacc00; -fx-background-radius: 15;">
-         <children>
-            <Text fill="WHITE" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Rooms" wrappingWidth="144.35894775390625">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtRooms" fill="#edf6f9" layoutX="70.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
-               <font>
-                  <Font name="System Bold Italic" size="42.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Line endX="423.79998779296875" layoutX="391.0" layoutY="152.0" startX="-100.0" />
-      <ImageView fitHeight="256.0" fitWidth="260.0" layoutX="284.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/pie-chart-infographic-template-png-favpng-fRmCw3mcBbBTcaD5Q0wCL27d2.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="290.0" layoutY="163.0" prefHeight="39.0" prefWidth="525.0" style="-fx-background-color: #264653;">
-         <children>
-            <Text fill="WHITE" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Status of Feedback">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <ImageView fitHeight="135.0" fitWidth="260.0" layoutX="560.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/PikPng.com_chart-png_729382.png" />
-         </image>
-      </ImageView>
-      <Text fill="#445479" layoutX="287.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to your command center! Effortlessly manage rooms, guests, and staff with sleek, intuitive controls. Add, edit, or remove info in a flash thanks to full CRUD functionality. Whether you're checking in a guest or updating staff details, everything you need is just a click away." wrappingWidth="546.1434326171875" />
-      <Text layoutX="621.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annualy customer reviews" />
-   </children>
+            </children>
+        </Pane>
+
+        <!-- Main Content Area -->
+        <Pane layoutX="280.0" prefHeight="600.0" prefWidth="720.0">
+            <children>
+                <!-- Header -->
+                <Text fill="#1f2937" layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analytics Overview">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Text>
+                <Text fill="#6b7280" layoutX="30.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor your business metrics in real-time" />
+
+                <!-- Stats Cards -->
+                <!-- Staff Card -->
+                <Pane layoutX="30.0" layoutY="90.0" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 16;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Circle fill="#8b5cf6" layoutX="45.0" layoutY="35.0" opacity="0.15" radius="20.0" />
+                        <Text fill="#8b5cf6" layoutX="34.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="👔">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#6b7280" layoutX="18.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Members">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="txtStaffmembers" fill="#1f2937" layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81%">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+
+                <!-- Customers Card -->
+                <Pane layoutX="250.0" layoutY="90.0" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 16;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Circle fill="#10b981" layoutX="45.0" layoutY="35.0" opacity="0.15" radius="20.0" />
+                        <Text fill="#10b981" layoutX="34.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="👥">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#6b7280" layoutX="18.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="txtCustomers" fill="#1f2937" layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98%">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+
+                <!-- Available Rooms Card -->
+                <Pane layoutX="470.0" layoutY="90.0" prefHeight="120.0" prefWidth="220.0" style="-fx-background-color: white; -fx-background-radius: 16;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Circle fill="#f59e0b" layoutX="45.0" layoutY="35.0" opacity="0.15" radius="20.0" />
+                        <Text fill="#f59e0b" layoutX="34.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🏨">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#6b7280" layoutX="18.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Rooms">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="txtRooms" fill="#1f2937" layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+
+                <!-- Feedback Analytics Section -->
+                <Pane layoutX="30.0" layoutY="230.0" prefHeight="340.0" prefWidth="320.0" style="-fx-background-color: white; -fx-background-radius: 16;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Text fill="#1f2937" layoutX="20.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback Analytics">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#6b7280" layoutX="20.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer satisfaction metrics" />
+
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="60.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/pie-chart-infographic-template-png-favpng-fRmCw3mcBbBTcaD5Q0wCL27d2.png" />
+                            </image>
+                        </ImageView>
+
+                        <Text fill="#6b7280" layoutX="20.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real-time feedback monitoring" wrappingWidth="280.0">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+
+                <!-- Customer Reviews Section -->
+                <Pane layoutX="370.0" layoutY="230.0" prefHeight="340.0" prefWidth="320.0" style="-fx-background-color: white; -fx-background-radius: 16;">
+                    <effect>
+                        <DropShadow color="#0000001a" radius="15.0" />
+                    </effect>
+                    <children>
+                        <Text fill="#1f2937" layoutX="20.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annual Reviews">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#6b7280" layoutX="20.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer review trends" />
+
+                        <ImageView fitHeight="150.0" fitWidth="280.0" layoutX="20.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/PikPng.com_chart-png_729382.png" />
+                            </image>
+                        </ImageView>
+
+                        <Text fill="#6b7280" layoutX="20.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effortlessly manage rooms, guests, and staff with intuitive controls. Full CRUD functionality allows you to add, edit, or remove information seamlessly." wrappingWidth="280.0">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

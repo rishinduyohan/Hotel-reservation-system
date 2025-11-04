@@ -3,24 +3,38 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.dto.LoginAccDTO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginFormController extends Component {
+public class LoginFormController extends Component implements Initializable {
 
     public TextField txtUsername;
     public PasswordField txtPassword;
+    public AnchorPane signUpPane;
+    public AnchorPane loginPane;
+    public AnchorPane loginPagePane;
+    public AnchorPane signUpPagePane;
+    public CheckBox checkSelect;
+    public PasswordField txtPassword1;
+    public TextField txtUsername1;
     Stage stage = new Stage();
+
 
     static ObservableList<LoginAccDTO> loginAccDTOS = FXCollections.observableArrayList(
             new LoginAccDTO("Admin", 1234),
@@ -29,14 +43,8 @@ public class LoginFormController extends Component {
     );
 
     public void btnSignInOnAction(ActionEvent actionEvent) {
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SignUp_form.fxml"))));
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage.show();
+        signUpPane.setVisible(true);
+        signUpPagePane.setVisible(true);
     }
 
     public boolean checkPassword(String username, String password) {
@@ -67,7 +75,6 @@ public class LoginFormController extends Component {
             stage.setTitle("Dashboard");
             stage.show();
         } else {
-            //Alert box
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Invalid User");
@@ -79,10 +86,65 @@ public class LoginFormController extends Component {
 
     public void checkPasswordOnAction(ActionEvent actionEvent) {
         btnLogInOnAction(actionEvent);
+        txtUsername.requestFocus();
     }
 
-    public static boolean isAdded(LoginAccDTO user) {
+    public boolean isAdded(LoginAccDTO user) {
         loginAccDTOS.add(user);
         return true;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        signUpPane.setVisible(false);
+        signUpPagePane.setVisible(false);
+    }
+
+    @FXML
+    void btnSignUpAction(ActionEvent event) {
+        if (!checkData()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please enter username and password!");
+            alert.setContentText("SignUp Failed!");
+            alert.showAndWait();
+        } else {
+            LoginAccDTO newAcc = new LoginAccDTO(txtUsername1.getText(), Integer.parseInt(txtPassword1.getText()));
+            if(isAdded(newAcc)) {
+                clear();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("success");
+                alert.setHeaderText("Username and Password added to the system!");
+                alert.setContentText("SignUp Success!");
+                alert.showAndWait();
+                btnBackOnAction(event);
+            }
+        }
+    }
+    public void clear(){
+        txtUsername1.setText("");
+        txtPassword1.setText("");
+    }
+    private boolean checkData() {
+        if ("".equals(txtUsername1.getText()) && "".equals(txtPassword1.getText())) {
+            return false;
+        }
+        return true;
+    }
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        signUpPane.setVisible(false);
+        signUpPagePane.setVisible(false);
+    }
+
+    public void userNameOnAction(ActionEvent actionEvent) {
+        txtPassword.requestFocus();
+    }
+
+    public void newUsernameOnAction(ActionEvent actionEvent) {
+        txtPassword1.requestFocus();
+    }
+
+    public void checkSecondPasswordOnAction(ActionEvent actionEvent) {
+        btnSignUpAction(actionEvent);
     }
 }
