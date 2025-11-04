@@ -32,7 +32,7 @@
                 <Text fill="#9ca3af" layoutX="80.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Management System" />
 
                 <!-- Navigation Buttons -->
-                <Button layoutX="20.0" layoutY="120.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="Dashboard" textFill="#d1d5db">
+                <Button layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="48.0" prefWidth="240.0" style="-fx-background-radius: 12; -fx-background-color: transparent; -fx-border-color: #4b5563; -fx-border-radius: 12; -fx-cursor: hand;" text="Dashboard" textFill="#d1d5db">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -217,6 +217,12 @@
                                     <String fx:value="Manager" />
                                     <String fx:value="Receptionist" />
                                     <String fx:value="Housekeeping" />
+                                    <String fx:value="Security Officer" />
+                                    <String fx:value="HR Executive" />
+                                    <String fx:value="Technician" />
+                                    <String fx:value="IT Support" />
+                                    <String fx:value="Accountant" />
+                                    <String fx:value="HR Assistant" />
                                 </FXCollections>
                             </items>
                         </ComboBox>

@@ -11,6 +11,6 @@ public class StaffInfoDTO {
     private String name;
     private String telNo;
     private String email;
-    private String reception;
+    private String role;
     private double salary;
 }
